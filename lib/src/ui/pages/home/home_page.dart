@@ -1,5 +1,6 @@
 import 'package:appdelivery/src/ui/pages/crud_store_prueba/crud_store.dart';
 import 'package:appdelivery/src/ui/pages/mapa_prueba/mapa.dart';
+import 'package:appdelivery/src/ui/pages/wifi/wifi.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -37,6 +38,15 @@ class HomePage extends StatelessWidget {
                   Navigator.push( 
                     context, 
                     MaterialPageRoute(builder: (context) => const CrudStrore())
+                  );
+                }
+              ),
+              ElevatedButton(
+                child: const Text('Wifi'),
+                onPressed: (){
+                  Navigator.push( 
+                    context, 
+                    MaterialPageRoute(builder: (context) => const PageWifi(title:'Wifi'))
                   );
                 }
               ),
