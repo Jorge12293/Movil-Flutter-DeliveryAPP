@@ -11,7 +11,6 @@ class PageWifi extends StatefulWidget {
 }
 
 class _PageWifiState extends State<PageWifi> {
-  int _counter = 0;
   String status ='Waiting...';
 
 
@@ -22,7 +21,7 @@ class _PageWifiState extends State<PageWifi> {
     checkRealTimeConnection();
   }
 
-  Connectivity _connectivity = Connectivity();
+  final Connectivity _connectivity = Connectivity();
 
   void checkConnectivity() async{
     var connectionResult = await _connectivity.checkConnectivity();
@@ -62,11 +61,6 @@ class _PageWifiState extends State<PageWifi> {
 
   }
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

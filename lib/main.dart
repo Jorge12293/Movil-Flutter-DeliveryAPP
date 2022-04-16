@@ -17,11 +17,3 @@ void main() async{
     )
   );
 }
-
-/*
-[
-    Provider<Something>(create: (_) => Something()),
-    Provider<SomethingElse>(create: (_) => SomethingElse()),
-    Provider<AnotherThing>(create: (_) => AnotherThing()),
-  ],
-*/

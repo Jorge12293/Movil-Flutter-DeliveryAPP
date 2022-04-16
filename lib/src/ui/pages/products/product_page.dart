@@ -1,5 +1,5 @@
 import 'package:appdelivery/src/data/firestore/product_services.dart';
-import 'package:appdelivery/src/ui/pages/products/widgets/single_child_widget.dart';
+import 'package:appdelivery/src/ui/pages/products/widgets/single_child_product_widget.dart';
 import 'package:flutter/material.dart';
 
 class ProductPage extends StatefulWidget {
@@ -33,7 +33,7 @@ class _ProductPageState extends State<ProductPage> {
         tooltip: 'Increment',
         child:const Icon(Icons.add),
       ),
-      body: SingleChildWidget(productService: _productService),
+      body: SingleChildProductWidget(productService: _productService),
     );
   }
 }

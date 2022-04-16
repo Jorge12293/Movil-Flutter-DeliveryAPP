@@ -4,8 +4,8 @@ import 'package:appdelivery/src/ui/pages/products/widgets/card_product.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class SingleChildWidget extends StatelessWidget {
-  const SingleChildWidget({
+class SingleChildProductWidget extends StatelessWidget {
+  const SingleChildProductWidget({
     Key? key,
     required ProductService productService,
   }) : _productService = productService, super(key: key);

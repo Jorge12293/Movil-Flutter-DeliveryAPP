@@ -1,6 +1,5 @@
 import 'package:appdelivery/src/data/firestore/product_services.dart';
 import 'package:appdelivery/src/domain/entities/product.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class CrudStrore extends StatefulWidget {
@@ -47,9 +46,9 @@ class _CrudStroreState extends State<CrudStrore> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Crud'),
+        title: const Text('Crud'),
       ),
-      body: Text('Hola'),
+      body: const Text('Hola'),
     );
   }
 }

@@ -1,12 +1,13 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:appdelivery/src/data/firestore/product_services.dart';
 import 'package:appdelivery/src/domain/entities/product.dart';
-import 'package:appdelivery/src/ui/pages/products/widgets/input_decoration_widget.dart';
+import 'package:appdelivery/src/ui/widgets/input_decoration_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ProductFormPage extends StatefulWidget {
-  ProductFormPage({this.product});
-  
+ProductFormPage({Key? key, this.product}) : super(key: key); 
   Product? product;
    
   @override
@@ -94,8 +95,8 @@ class _ProductFormPageState extends State<ProductFormPage> {
               Navigator.pop(context,true);
             },
             child:(idProducto == '') 
-              ?Text("Save",style: TextStyle(color: Colors.white))
-              :Text("Update",style: TextStyle(color: Colors.white))
+              ?const Text("Save",style: TextStyle(color: Colors.white))
+              :const Text("Update",style: TextStyle(color: Colors.white))
           ),
         ),
       ),

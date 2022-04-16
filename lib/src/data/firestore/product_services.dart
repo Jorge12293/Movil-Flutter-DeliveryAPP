@@ -64,29 +64,6 @@ class ProductService extends ProductRepository {
     }
   
   }
-
-
-
-  /*
-  db.collection("users")
-  .where("name", "==", "Guizmo")
-  .onSnapshot((querySnapshot) =>
-    querySnapshot.docChanges().forEach((change) => {
-      if (change.typ * e === "added") {
-        console.log("Added :", change.doc.data());
-      }
-
-      if (change.type === "modified") {
-        console.log("Modified :", change.doc.data());
-      }
-
-      if (change.type === "removed") {
-        console.log("Removed :", change.doc.data());
-      }
-    })
-  );
-}*/
-
 }
   
 
