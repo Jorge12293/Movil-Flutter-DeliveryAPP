@@ -10,7 +10,8 @@ class Mapa extends StatefulWidget {
 class _MapaState extends State<Mapa> {
   
   static const _initialCameraPoisition = CameraPosition(
-    target:LatLng(37.773972, -122.431297),
+     
+    target:LatLng(-2.90055, -79.00453),
     zoom: 11.5
   );
 
@@ -28,7 +29,7 @@ class _MapaState extends State<Mapa> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Delivery App'),
+        title: const Text('Map Prueba'),
       ),
       body: Stack(
         alignment: Alignment.center,

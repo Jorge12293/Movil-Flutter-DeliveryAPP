@@ -1,17 +1,21 @@
 import 'package:appdelivery/src/data/firestore/product_services.dart';
+import 'package:appdelivery/src/domain/entities/product.dart';
+import 'package:appdelivery/src/ui/pages/products/widgets/card_product.dart';
 import 'package:appdelivery/src/ui/pages/products/widgets/single_child_product_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+
 
 class ProductPage extends StatefulWidget {
   const ProductPage({Key? key}) : super(key: key);
   @override
   State<ProductPage> createState() => _ProductPageState();
-
 }
 
 class _ProductPageState extends State<ProductPage> {
   
   final ProductService _productService = ProductService();
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -33,9 +37,12 @@ class _ProductPageState extends State<ProductPage> {
         tooltip: 'Increment',
         child:const Icon(Icons.add),
       ),
-      body: SingleChildProductWidget(productService: _productService),
+      body: SingleChildProductWidget(productService: _productService)
     );
   }
+
+
+
 }
 
 

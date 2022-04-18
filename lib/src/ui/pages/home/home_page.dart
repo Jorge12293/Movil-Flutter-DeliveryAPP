@@ -1,93 +1,60 @@
-import 'package:appdelivery/src/ui/pages/crud_store_prueba/crud_store.dart';
-import 'package:appdelivery/src/ui/pages/mapa_prueba/mapa.dart';
-import 'package:appdelivery/src/ui/pages/wifi/wifi.dart';
+import 'package:appdelivery/src/ui/pages/home/tabs/news_tab.dart';
+import 'package:appdelivery/src/ui/pages/home/tabs/options_tab.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Delivery App'),
-      ),
-      body: Center(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children : [
-              const Text('OPCIONES'),
-              ElevatedButton(
-                child: const Text('Ver Mapa'),
-                onPressed: (){
-                  Navigator.push( 
-                    context, 
-                    MaterialPageRoute(builder: (context) => const Mapa())
-                  );
-                }
-              ),
-              ElevatedButton(
-                child: const Text('Productos'),
-                onPressed: (){
-                  Navigator.pushNamed(context,'products');
-                }
-              ),
-              ElevatedButton(
-                child: const Text('Companies'),
-                onPressed: (){
-                  Navigator.pushNamed(context,'company');
-                }
-              ),
-              ElevatedButton(
-                child: const Text('Crud Store'),
-                onPressed: (){
-                  Navigator.push( 
-                    context, 
-                    MaterialPageRoute(builder: (context) => const CrudStrore())
-                  );
-                }
-              ),
-              ElevatedButton(
-                child: const Text('Wifi'),
-                onPressed: (){
-                  Navigator.push( 
-                    context, 
-                    MaterialPageRoute(builder: (context) => const PageWifi(title:'Wifi'))
-                  );
-                }
-              ),
-               ElevatedButton(
-                child: const Text('Mapa'),
-                onPressed: (){
-                  Navigator.push( 
-                    context, 
-                    MaterialPageRoute(builder: (context) => const Mapa())
-                  );
-                }
-              ),
-              ElevatedButton(
-                child: const Text('Mapa'),
-                onPressed: (){
-                  Navigator.push( 
-                    context, 
-                    MaterialPageRoute(builder: (context) => const Mapa())
-                  );
-                }
-              ),
-              ElevatedButton(
-                child: const Text('Mapa'),
-                onPressed: (){
-                  Navigator.push( 
-                    context, 
-                    MaterialPageRoute(builder: (context) => const Mapa())
-                  );
-                }
-              )
+  State<HomePage> createState() => _HomePageState();
+}
+class _HomePageState extends State<HomePage>  with TickerProviderStateMixin{
 
-            ]    
+late TabController _controller;
+//int _selectedIndex = 0;
+
+@override
+void initState() {
+  super.initState();
+  _controller = TabController(length: 2, vsync: this);
+  /*
+  _controller.addListener(() {
+    setState(() {
+      _selectedIndex = _controller.index;
+    });
+    print("Selected Index: " + _controller.index.toString());
+  });
+  */
+}
+@override
+void dispose() {
+  _controller.dispose();
+  super.dispose();
+}
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            controller: _controller,
+            tabs: const [
+              Tab(text: 'Options'),
+              Tab(text: 'News'),
+            ],
           ),
-      ),
-      
+          title: const Text('AppDelivery'),
+        ),
+        body: TabBarView(
+          controller: _controller,
+          children: [
+            optionsTab(context),
+            newsTab(),
+          ],
+        ),
+
+      )
     );
   }
 }

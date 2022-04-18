@@ -1,6 +1,5 @@
 import 'package:appdelivery/src/data/firestore/company_service.dart';
 import 'package:appdelivery/src/domain/entities/company.dart';
-import 'package:appdelivery/src/domain/enums/status_company.dart';
 import 'package:appdelivery/src/ui/pages/company/company_form_page.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +10,8 @@ Widget cardCompany (Company company,BuildContext context) {
     key: UniqueKey(),
     direction: DismissDirection.startToEnd,
     onDismissed: (direcction) {
-       _companyService.updateStatusCompany(company.id as String, StatusCompany.inactive);
+       _companyService.deleteCompany(company.id as String);
+       //_companyService.updateStatusCompany(company.id as String, StatusCompany.inactive);
     },
     background: Container(
         padding: const EdgeInsets.only(left: 8.0),
@@ -28,12 +28,7 @@ Widget cardCompany (Company company,BuildContext context) {
       ),
     child: ListTile(
       onTap: (){
-        
-        Navigator.push( 
-          context, 
-          MaterialPageRoute(builder: (context) => CompanyFormPage(company: company))
-        );
-        
+        Navigator.push(context,MaterialPageRoute(builder: (context) => CompanyFormPage(company: company)));
       },
       leading: const Icon(Icons.list),
       contentPadding: const EdgeInsets.only(right: 40,left: 40),

@@ -68,3 +68,20 @@ class ProductService extends ProductRepository {
   
 
   
+  /*
+  @override
+  Widget build(BuildContext context) {
+      return StreamBuilder<DocumentSnapshot>(
+        stream: Firestore.instance
+          .collection('myCollection')
+          .document('myDocument')
+          .snapshots(),
+        builder: (context, orderSnapshot) {
+          if (!orderSnapshot.data.exists) {
+            return Text("Waiting...");
+          } else {
+            return Text(orderSnapshot);
+          }
+        });
+  }
+  */
