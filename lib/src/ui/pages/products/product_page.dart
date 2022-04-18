@@ -1,4 +1,5 @@
 import 'package:appdelivery/src/data/firestore/product_services.dart';
+import 'package:appdelivery/src/data/http/article_service.dart';
 import 'package:appdelivery/src/domain/entities/product.dart';
 import 'package:appdelivery/src/ui/pages/products/widgets/card_product.dart';
 import 'package:appdelivery/src/ui/pages/products/widgets/single_child_product_widget.dart';
@@ -13,14 +14,13 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-  
   final ProductService _productService = ProductService();
-  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
  

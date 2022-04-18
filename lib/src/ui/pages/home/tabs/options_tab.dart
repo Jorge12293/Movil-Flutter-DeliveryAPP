@@ -19,6 +19,12 @@ Widget optionsTab(BuildContext context) {
                   Navigator.pushNamed(context,'company');
                 }
               ),
+              ElevatedButton(
+                child: const Text('CartShopping'),
+                onPressed: (){
+                  Navigator.pushNamed(context,'shoppingCart');
+                }
+              ),
 
             ]    
           ),
