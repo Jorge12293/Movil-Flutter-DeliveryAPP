@@ -1,3 +1,4 @@
+import 'package:appdelivery/src/pruebas/dialogs/pages/home_page.dart';
 import 'package:appdelivery/src/ui/pages/company/company_form_page.dart';
 import 'package:appdelivery/src/ui/pages/company/company_page.dart';
 import 'package:appdelivery/src/ui/pages/home/home_page.dart';
@@ -10,7 +11,7 @@ import 'package:flutter/cupertino.dart';
 class AppRoutes{
 
   //static const initialRoute = 'home';
-  static const initialRoute = 'home';
+  static const initialRoute = 'pageDialog';
 
   static Map<String, Widget Function(BuildContext)> routes = {
     'home' : (BuildContext context) => const HomePage(),
@@ -24,6 +25,12 @@ class AppRoutes{
     'shoppingCart' : (BuildContext context) =>  ShoppingCartPage(),    
 
     'mapLocation' : (BuildContext context) =>const MapLocationPage(),
+
+
+    //Pruebas
+    'pageDialog' : (BuildContext context) => HomePageDialog(),
+    
+
   };
 
 }

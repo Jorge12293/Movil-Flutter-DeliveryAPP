@@ -1,6 +1,6 @@
 import 'package:appdelivery/src/domain/entities/article.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+//import 'package:intl/intl.dart';
 
 class ViewArticle extends StatefulWidget {
   ViewArticle({required this.article});
@@ -44,9 +44,9 @@ class _ViewArticleState extends State<ViewArticle> {
               Text('Content'),
               Text(widget.article.content as String),
               Text('Published At'),
-              widget.article.publishedAt != ''
-              ? Text(DateFormat.Hm().format(widget.article.publishedAt as DateTime))
-              : Text('No hay fecha')
+              //widget.article.publishedAt != ''
+              //? Text(DateFormat.Hm().format(widget.article.publishedAt as DateTime))
+              //: Text('No hay fecha')
         ],
 
       ),
