@@ -25,42 +25,36 @@ class _NewsTab extends State<NewsTab> {
   Widget build(BuildContext context) {
     return Column(
       children:[
+          /*
           FutureBuilder<List<Article>>(
             future: articleService.getNewsArticles(),
             builder: (context,snapshot){
               if (snapshot.hasData) {
                 List<Article> _listArticle =  snapshot.data as List<Article>;
-                return SizedBox(
-                  height: 100,
-                  child: Expanded(
+                return  Expanded(
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: _listArticle.length,
                       itemBuilder: (BuildContext context,int index){
-                        
                         return _listArticle[index].urlToImage != '' 
-                          ? GestureDetector(
+                          ?GestureDetector(
                             onTap: (){
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) => ViewArticle(article:  _listArticle[index])),
                               );
                             },
-                            child: SizedBox(
+                            child:FadeInImage(
                                 height: 100,
-                                width: 150,
-                                child:FadeInImage(
-                                    placeholder: const AssetImage('assets/img/cargando.jpeg'),
-                                    image:NetworkImage(_listArticle[index].urlToImage as String),
-                                    fit: BoxFit.cover,
-                                ),
+                                placeholder: AssetImage('assets/img/cargando.jpeg'),
+                                image:NetworkImage(_listArticle[index].urlToImage as String),
+                                fit: BoxFit.cover,
                               ),
-                          )
-                          : Container();
+                            
+                          ): Container();
                       }
                     ),
-                  ),
-                );
+                  );
               
               }else if(snapshot.hasError){
                 return const Text('Error en peticion');
@@ -68,6 +62,45 @@ class _NewsTab extends State<NewsTab> {
                 return Container();
               }
             }
+        ),
+        */
+        Container(
+          height: 150,
+          width: double.infinity,
+         child:FutureBuilder<List<Article>>(
+            future: articleService.getNewsArticles(),
+            builder: (context,snapshot){
+              if (snapshot.hasData) {
+                List<Article> _listArticle =  snapshot.data as List<Article>;
+                return ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: _listArticle.length,
+                      itemBuilder: (BuildContext context,int index){
+                        return _listArticle[index].urlToImage != '' 
+                          ?GestureDetector(
+                            onTap: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => ViewArticle(article:  _listArticle[index])),
+                              );
+                            },
+                            child:FadeInImage(
+                                height: 100,
+                                placeholder: AssetImage('assets/img/cargando.jpeg'),
+                                image:NetworkImage(_listArticle[index].urlToImage as String),
+                                fit: BoxFit.cover,
+                              ),
+                            
+                          ): Container();
+                      });
+              
+              }else if(snapshot.hasError){
+                return const Text('Error en peticion');
+              }else{
+                return Container();
+              }
+            }
+          ),
         ),
         Expanded(
           child: FutureBuilder<List<Article>>(

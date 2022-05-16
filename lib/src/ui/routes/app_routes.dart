@@ -1,7 +1,9 @@
 import 'package:appdelivery/src/pruebas/dialogs/pages/home_page.dart';
+import 'package:appdelivery/src/pruebas/notifications/pages/notification_page.dart';
 import 'package:appdelivery/src/ui/pages/company/company_form_page.dart';
 import 'package:appdelivery/src/ui/pages/company/company_page.dart';
 import 'package:appdelivery/src/ui/pages/home/home_page.dart';
+import 'package:appdelivery/src/ui/pages/login/login.dart';
 import 'package:appdelivery/src/ui/pages/map_location/map_location_page.dart';
 import 'package:appdelivery/src/ui/pages/products/product_form_page.dart';
 import 'package:appdelivery/src/ui/pages/products/product_page.dart';
@@ -11,7 +13,7 @@ import 'package:flutter/cupertino.dart';
 class AppRoutes{
 
   //static const initialRoute = 'home';
-  static const initialRoute = 'pageDialog';
+  static const initialRoute = 'notificationPage';
 
   static Map<String, Widget Function(BuildContext)> routes = {
     'home' : (BuildContext context) => const HomePage(),
@@ -26,9 +28,11 @@ class AppRoutes{
 
     'mapLocation' : (BuildContext context) =>const MapLocationPage(),
 
-
+    'login' : (BuildContext context) =>const LoginPage(),
+    
     //Pruebas
     'pageDialog' : (BuildContext context) => HomePageDialog(),
+    'notificationPage' : (BuildContext context) => NotificationPage(),
     
 
   };
