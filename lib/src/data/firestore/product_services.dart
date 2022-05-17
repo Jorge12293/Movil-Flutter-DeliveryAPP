@@ -2,15 +2,33 @@
 import 'package:appdelivery/src/domain/entities/product.dart';
 import 'package:appdelivery/src/domain/repositories/product_repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class ProductService extends ProductRepository {
+ 
+  final db = FirebaseFirestore.instance;
+  
+
 
   final CollectionReference _collectionReference = FirebaseFirestore.instance
     .collection('product');
   
   @override
   Stream<QuerySnapshot<Object?>> productsListening() {
+    _collectionReference.snapshots().listen((querySnapshot) {
+
+        for (var change in querySnapshot.docChanges) {
+    if (change.type == DocumentChangeType.added) {
+      final source =
+          (querySnapshot.metadata.isFromCache) ? "local cache" : "server";
+
+         print("Data fetched from $source ........................=>");
+    }
+  }
+
+     });
+
     return  _collectionReference.snapshots();
   }
   
@@ -33,7 +51,9 @@ class ProductService extends ProductRepository {
   Future<bool> addProduct (Product product) async{
     try{
       Product tempProduct = product.copy();
-      await _collectionReference.add(tempProduct.toJson());
+      await _collectionReference.add(tempProduct.toJson())
+            .then((value) => print('================================== then'))
+            .catchError((value)=>print('================================== error'));
       return true;
     }catch(e){
       debugPrint(e.toString());

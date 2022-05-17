@@ -15,15 +15,29 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   final ProductService _productService = ProductService();
+  // FirebaseFirestore db = FirebaseFirestore.instance;
+   
+var firestore = FirebaseFirestore;
 
   @override
   void initState() {
-    super.initState();
+    
+
+      FirebaseFirestore.instance.enableNetwork().then((_) {
+     print('disableNetwork() ===================================================>');
+   });
+
+  
+   super.initState();
+  
   }
+
+ 
 
   @override
   Widget build(BuildContext context) {
- 
+   
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Productos'),

@@ -13,7 +13,7 @@ import 'package:flutter/cupertino.dart';
 class AppRoutes{
 
   //static const initialRoute = 'home';
-  static const initialRoute = 'notificationPage';
+  static const initialRoute = 'products';
 
   static Map<String, Widget Function(BuildContext)> routes = {
     'home' : (BuildContext context) => const HomePage(),
