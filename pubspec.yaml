@@ -50,6 +50,8 @@ dependencies:
 
   connectivity_plus: ^2.2.0
   geolocator_web: ^2.0.6
+  address_search_field: ^4.0.1
+  location: ^4.4.0
 
 
 
